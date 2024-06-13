@@ -7,6 +7,9 @@ def main():
     library1 = Library(books)
     print(library1)
     
+    res=pinjam()
+    student=Student('ang')
+    student.return_book(res)
     
     
     admin={}
@@ -36,46 +39,11 @@ def main():
                 
         
     
-    #res=pinjam()
-    
-    #returned_book(res)
+ 
     
     
     
-def returned_book(n):
-    # with open("record.txt", 'r') as record:
-    #     records = record.readlines()
-    #     print(records)
 
-    # updated_records = []
-    # for record in records:
-    #     print(book_name)
-    #     if book_name not in n:
-    #         updated_records.append(record)
-    with open("testingbook.txt", "a") as books_available:
-        for book in n:
-            s,d=book.split()
-            print(s)
-            books_available.write( s )
-            
-        print(n)
-
-        with open("record.txt", 'r+') as record_current:
-            lines = record_current.readlines()
-            record_current.seek(0)
-            record_current.truncate()
-            for line in lines:
-                if line.strip() not in n:
-                    record_current.write(line)
-            
-            
-            
-        
-
-        # with open("record.txt", 'w') as record_delete:
-        #     for e in updated_content:
-        #         update_record.write(e)
-   
         
             
     

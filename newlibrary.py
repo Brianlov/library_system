@@ -51,9 +51,46 @@ class Student():
     def request_book(self):
         book=input("What book do u want to borrow")
         return book
-    def return_book(self):
-        book=input("Please enter the book u want to retun")
-        return book
+    def return_book(self,book_with_date):
+        res=int(input('Enter your choice: \n1. check your book\n2. return your book\n3. checking penalty\n4. exit'))
+        books=[]
+        dates=[]
+        book_copy=book_with_date.copy()
+        for book in book_copy:
+                s,d=book.split()
+                books.append(s)
+                dates.append(d)
+        if res==1:
+            print('Your have borrowed {}'.format(books))
+            return
+        elif res==2:
+            from returned import returned_book
+            returned_book(book_with_date)
+            return
+        elif res==3:
+            from datetime import datetime, date, timedelta
+            #change the string to time-format
+            due_date = datetime.strptime('2024-6-10', "%Y-%m-%d").date()
+            p = []
+
+            for d in dates:
+                d_date = datetime.strptime(d, "%Y-%m-%d").date()  # Convert 'd' from string to datetime.date
+                delta_days = (d_date - due_date).days  # Calculate the difference in days
+                #check whether 
+                if delta_days>=1:
+                    p.append(delta_days * 0.8)  # Calculate penalty
+                else:
+                    p.append(0)
+
+            
+            penalty={}
+            for i in range(len(books)):
+                penalty[books[i]]=p[i]
+            print(penalty)
+        elif res==4:
+            return 0
+            
+         
         
 class Admin(Student):
     def __init__ (self,name,password):
