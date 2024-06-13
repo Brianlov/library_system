@@ -1,0 +1,26 @@
+    # with open("record.txt", 'r') as record:
+    #     records = record.readlines()
+    #     print(records)
+
+    # updated_records = []
+    # for record in records:
+    #     print(book_name)
+    #     if book_name not in n:
+    #         updated_records.append(record)
+
+
+     # with open("record.txt", 'w') as record_delete:
+        #     for e in updated_content:
+        #         update_record.write(e)
+   
+
+    def borrowBook(self):
+        book=input("What book do u want to borrow")
+        if book not in self.books:
+            print("Book not available")
+        else:
+            self.books.remove(book)
+            print('Thank you for borrowing the book!')
+            
+    def returnBook(self):
+        name=input("What is the book u want to return?")
