@@ -9,11 +9,11 @@ def main():
     
     res=pinjam()
     student=Student('ang')
-    student.return_book(res)
+    #student.return_book(res)
     
     
     admin={}
-    response=5
+    response=6
     username='Brian'
     password='okok'
     
@@ -34,6 +34,21 @@ def main():
                             
                         if response == 2:
                             admin.check_record()
+                            
+        if response==6:
+            return_day=date.today()
+            res1=res.copy()
+            
+            for e in res1:
+                book,d=e.split()
+                name=student.name
+                library1.print_receipt(name,book,d,return_day)
+                print('\n')
+            break
+        
+    
+        
+                
             
                     
                 

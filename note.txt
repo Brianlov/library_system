@@ -13,3 +13,14 @@
         #     for e in updated_content:
         #         update_record.write(e)
    
+
+    def borrowBook(self):
+        book=input("What book do u want to borrow")
+        if book not in self.books:
+            print("Book not available")
+        else:
+            self.books.remove(book)
+            print('Thank you for borrowing the book!')
+            
+    def returnBook(self):
+        name=input("What is the book u want to return?")
