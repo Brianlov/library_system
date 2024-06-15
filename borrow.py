@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Name:        module1
+# Name:        borrow
 # Purpose:
 #
 # Author:      Ang Wei Ding
@@ -40,7 +40,14 @@ def pinjam():
 
                 borrowing = l.pop(choose-1)
                 print("\nYou have choosen: ", borrowing)
-                borrow_days = int(input("How long do you wish to borrow this book (days): "))
+
+
+                while True:
+                    borrow_days = int(input("How long do you wish to borrow this book (max 5 days): "))
+                    if 1 <= borrow_days <= 5:
+                        break
+                    else:
+                        print("Invalid input. Please enter a number between 1 and 5.")
 
                 from datetime import datetime, date, timedelta
                 today = date.today()
@@ -63,11 +70,11 @@ def pinjam():
         books_available.close()
 
 
-        
-        res.append (str(borrowing).strip() + " " + str(today + timedelta(days=borrow_days)))
-        
 
-        cont = str(input("Do you wish to continue? y/n"))
+        res.append (str(borrowing).strip() + " " + str(today + timedelta(days=borrow_days)))
+
+
+        cont = str(input("Do you wish to continue? y/n\n"))
     return res
 
 
