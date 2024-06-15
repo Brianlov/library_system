@@ -75,9 +75,10 @@ def main():
                 booked,d=e.split()
                 #if Nogizaka46==Nogizaka46
                 if booked==bookreturned[0]:
-                    return_day=date.today()+timedelta(days=10)
+                    #time return book if the time return is larger than 5,there will have penalty
+                    return_day=(datetime.strptime(d, "%Y-%m-%d")+timedelta(days=6)).date()
                     print(student.name,booked,d,return_day)
-                    library1.return_receipt(student.name,booked,d,return_day)
+                    library1.return_receipt(student.name,booked,date.today(),return_day)
                 else:
                     continue
             #append the book into the library
@@ -116,6 +117,7 @@ def main():
             for e in res1:
                 book,d=e.split()
                 name=student.name
+                return_day=(datetime.strptime(d, "%Y-%m-%d")+timedelta(days=6)).date()
                 library1.borrow_receipt(name,book,d,return_day)
             print('\n')
 

@@ -96,7 +96,7 @@ class Student():
         book=borrow.pinjam()
         return book
     def return_book(self,book_with_date):
-        res=get_int('Enter your choice: \n1. Book cart\n2. Return\n3. exit')
+        print('Return book')
         books=[]
         dates=[]
         book_copy=book_with_date.copy()
@@ -104,22 +104,18 @@ class Student():
                 s,d=book.split()
                 books.append(s)
                 dates.append(d)
-        if res==1:
-            print('Your have borrowed {}'.format(books))
-        elif res==2:
-            from returned import returned_book
-            print('Your book available are: ')
+        from returned import returned_book
+        print('Your book available are: ')
             
-            for i in range(len(books)):
-                print(f'{i+1}. {books[i]}')
-            number=get_int('Enter book number for returned: ')
-            returned_book(book_with_date,number-1)
-            return_book=[]
-            return_book.append(books[i])
-            print(return_book)
-            return return_book
-        elif res==3:
-            return 0
+        for i in range(len(books)):
+            print(f'{i+1}. {books[i]}')
+        number=get_int('Enter book number for returned: ')
+        returned_book(book_with_date,number-1)
+        return_book=[]
+        return_book.append(books[i])
+        print(return_book)
+        return return_book
+        
         
         
         
